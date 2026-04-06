@@ -1,0 +1,34 @@
+_start,0 -> carry0,0p,R
+_start,1 -> carry1,1p,R
+
+carry0,0 -> carry0,0,R
+carry0,1 -> carry0,1,R
+carry0,0f -> carry0,0f,R
+carry0,1f -> carry0,1f,R
+carry0,# -> back,0f,L
+
+carry1,0 -> carry1,0,R
+carry1,1 -> carry1,1,R
+carry1,0f -> carry1,0f,R
+carry1,1f -> carry1,1f,R
+carry1,# -> back,1f,L
+
+back,0f -> back,0f,L
+back,1f -> back,1f,L
+back,0 -> back,0,L
+back,1 -> back,1,L
+back,0p -> next,0,R
+back,1p -> next,1,R
+
+next,0 -> carry0,0p,R
+next,1 -> carry1,1p,R
+next,0f -> clean,0,R
+next,1f -> clean,1,R
+
+clean,0f -> clean,0,R
+clean,1f -> clean,1,R
+clean,# -> final_back,#,L
+
+final_back,0 -> final_back,0,L
+final_back,1 -> final_back,1,L
+final_back,# -> _finish,#,R

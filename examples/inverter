@@ -1,0 +1,8 @@
+_start,0 -> inv,1,R
+_start,1 -> inv,0,R
+inv,0 -> inv,1,R
+inv,1 -> inv,0,R
+inv,# -> back,#,L
+back,0 -> back,0,L
+back,1 -> back,1,L
+back,# -> _finish,#,R
