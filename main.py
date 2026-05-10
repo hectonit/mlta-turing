@@ -1,6 +1,6 @@
 import argparse
 from src.syntax_parser import Code
-from src.machine import Machine
+from src.machine import Machine, TuringLogicError
 
 
 def main():
@@ -15,7 +15,10 @@ def main():
     input_str = list(input().split())
     machine.place_input(input_str)
     machine.execute()
-    print(*machine.read_result())
+    try:
+        print(*machine.read_result())
+    except TuringLogicError:
+        print("Not finished")
 
 
 if __name__ == "__main__":
